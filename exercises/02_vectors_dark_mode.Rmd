@@ -44,6 +44,8 @@ This is what a "vector" looks like:
 c(1, 7, 12, 4, 2)
 ```
 
+#'''chunks'''#
+
 You can see that this vector contains five numbers.
 Those numbers are separated with commas and wrapped in parentheses - but at the beginning, there is an ominous `c`.
 If you run this code, however, it just shows the numbers next to each other, without the `c()` and without the commas.
@@ -74,13 +76,14 @@ This does not work:
 ```{r}
 c(10, "biscuit", TRUE)
 ```
+#it didn't work, no logical, character!#
 
 It **seems** like it worked, but the quotation marks around every element indicate that everything has just been turned into a character!
 
 Look at what happens when we mix integers and logicals [^logical_numbers]:
 
 ```{r}
-c(10, FALSE)
+c(10, TRUE, FALSE)
 ```
 
 [^logical_numbers]: Logicals have a numeric representation: `TRUE` equals 1, and `FALSE` equals 0.
@@ -97,6 +100,8 @@ This will not work[^run_error]:
 ```{r error = TRUE}
 (2, 5, 10)
 ```
+#c is crucial!#
+#{r error = TRUE} an purpose!#{r} (2, 5, 10)wouldn't work#
 
 [^run_error]: Note that an Rmarkdown file will not run if a chunk contains an error - unless you explicitly tell it that it's fine and that it is supposed to expect an error here. You can do this by setting the chunk option `error = TRUE` (see at the top of the chunk). If you ever want to purposely include an error in the code, e.g. for educational purposes, this is what you have to use.
 
@@ -111,7 +116,28 @@ my_vector # print vector
 
 1.1) Create some vectors. Create one vector with characters, one with numbers, and one with logicals. Save them all into different variables.
 
+```{r}
+vector1 <- c("hallo","ciao")
+```
+
+```{r}
+c(1,2,3,4)
+```
+```{r}
+vector2 <- c(TRUE,FALSE,TRUE)
+```
+
+```{r}
+vector3 <- c("hallo", "ciao")
+vector4 <- c(1,2,4,5)
+```
+
+
 1.2) We saw that the `c()` function combines elements into a vector, but it can also combine vectors! Try to combine some of the vectors you previously created using the `c()` function.
+
+```{r}
+c(vector1, vector2, vector3, vector4)
+```
 
 ### Optional
 
@@ -141,10 +167,19 @@ c(1, 2, 5) + 1
 What do you expect the following code will produce?
 
 2.2) `c(1, 2, 5) - 1`
+```{r}
+c(1, 2, 5) - 1
+```
 
 2.3) `c(1, 2, 5) * 2`
+```{r}
+c(1, 2, 5) * 2
+```
 
 2.4) `c(1, 2, 5) / 2`
+```{r}
+c(1, 2, 5) / 2
+```
 
 Vectors are one of the most important concepts of `R`.
 Sure, other programming languages have similar concepts, but in `R`, vectors are really powerful.
@@ -156,13 +191,29 @@ As usual, it is easier to look at it than to describe it:
 c(2, 4, 6) + c(1, 0, 2)
 ```
 
+
 Now, you can infer what these lines of code will do:
 
 2.5) `c(2, 4, 6) - c(1, 0, 1)`
+```{r}
+c(2, 4, 6) - c(1, 0, 1)
+```
+
+```{r}
+c(2, 4, 6) - c(1, 0, 1)
+```
+
 
 2.6) `c(2, 4, 6) * c(1, 0, 1)`
+```{r}
+c(2, 4, 6) * c(1, 0, 1)
+```
 
 2.7) `c(2, 4, 6) / c(1, 2, 1)`
+```{r}
+c(2, 4, 6) / c(1, 2, 1)
+```
+
 
 However, things get *really* wild when we use vectors that don't have the same length.
 
@@ -171,10 +222,21 @@ Can you see what happened here?
 ```{r}
 c(2, 4, 6, 5, 0, 0) + c(1, 10)
 ```
+#repeats the same vector#
 
 Let's look at this concept some more.
 
 2.8) Can you multiply **every other** element of `c(2, 4, 6, 4, 9, 12)` with 2? (I.e. only 4, 4 and 12 should be multiplied with 2 - the other elements should be left unchanged.)
+
+```{r}
+c(2, 4, 6, 4, 9, 12) * c(1, 2, 1, 2, 1, 2)
+```
+
+
+```{r}
+c(2, 4, 6, 4, 9, 12) * c(1, 2)
+```
+
 
 ### Optional
 
