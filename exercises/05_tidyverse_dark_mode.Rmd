@@ -51,7 +51,7 @@ Let's install the `tidyverse` together.
 Just uncomment the line below - the code is commented out so it isn't run every time you run this Rmarkdown file.
 
 ```{r eval=FALSE}
-# install.packages("tidyverse")
+install.packages("tidyverse")
 ```
 
 We have installed our package, but we can't use its functions yet.
@@ -74,6 +74,7 @@ However, the `tidyverse` is intended to be used as a "package family", so it isn
 (And it's quite common not to know which specific package functions from the `tidyverse` are from.)
 
 One of the most popular and noticeable features of the `tidyverse` is the pipe operator, which looks like this: `%>%`.[^pipe_shortcut]
+
 
 [^pipe_shortcut]: If you try typing this by hand, you will lose your sanity at some point. Promise. I strongly recommend creating a shortcut. You can do this via Tools $\to$ modify keyboard shortcuts. Look for "insert pipe operator" in the search bar. I chose "alt + ." to add the pipe, simply because "alt + -" inserts the assignment operator `<-` per default. This way, I have my two most important shortcuts "next to each other".
 
@@ -103,6 +104,7 @@ In the tidyverse, we chain those functions together using the pipe operator:
 # tidyverse style
 example_vector %>% mean() %>% round(2)
 ```
+#directory#
 
 Note how we can leave out the actual data argument every time.
 `mean()` doesn't use any arguments at all - the parentheses just stay empty.
@@ -122,12 +124,38 @@ example_vector <- c(3, -2, 5, 99, -132.5)
 as.character(mean(abs(example_vector)))
 ```
 
+```{r}
+example_vector %>% abs() %>% mean() %>% as.character()
+```
+```{r}
+example_vector %>% 
+  abs() %>% 
+  mean() %>% 
+  as.character()
+```
+
+
 1.2) Let's make things a bit trickier with additional arguments.
 
 ```{r}
 example_vector <- c(3, -2, 5, NA, 99, -132.5, NA)
 as.character(mean(head(abs(example_vector), 4), na.rm = TRUE))
 ```
+
+```{r}
+example_vector <- c(3, -2, 5, NA, 99, -132.5, NA)
+example_vector %>% 
+  abs() %>% 
+  head(4) %>% 
+  mean(na.rm = TRUE) %>% 
+  as.character()
+```
+#abs: turn into positive values#
+
+
+round(mean(example_vector), 2)
+example_vector %>% mean() %>% round(2)
+
 
 ### Optional
 
