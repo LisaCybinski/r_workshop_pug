@@ -92,6 +92,7 @@ typeof(3.2)
 # 3.3) Try out: FALSE & FALSE, then FALSE & TRUE and finally, TRUE & TRUE. 
 #      What happens?
 
+
 # 3.4) Try the same as above, but replace & with | (alt gr + <). What does | do?
 
 ## OPTIONAL --------------------------------------------------------------------
@@ -124,7 +125,8 @@ single_number <- 7
 
 # By the way: There is a shortcut in RStudio that produces the little arrow <-
 # Try it out: alt + -
-
+ <- <- <- 
+  
 # 4.1) Type single_number (without quotation marks) into the console and hit 
 #      return. What happens?
 
@@ -133,6 +135,10 @@ single_number <- 7
 single_number <- 2
 
 # 4.3) Assign something to a variable with a name of your choice.
+single_numer <- and
+single_numer <- "and"
+this_is_a_string <- "hello world"
+
 
 # 4.4) Examine what happens here. What is the result? What do you think will 
 #      single_number contain now? 2 or 6? Run single_number in the console to 
@@ -145,6 +151,7 @@ number2 <- 2
 number6 <- 6
 
 number2 + number6
+addition <- number2 + number6
 
 multiplied <- number2 * number6
 multiplied
@@ -261,6 +268,8 @@ T
 # environment by running the command:
 
 rm(list = ls())
+rm(number2)
+#rm=remove; 
 
 # While R offers you to save the content of your environment whenever you close 
 # your session, it's best practice not to do that. You can tell RStudio that it 
